@@ -3,14 +3,14 @@ use std::io;
 
 use rand::Rng;
 
-fn ask_yn(question: &str, a: &str, b: &str) -> bool {
+fn ask_yn(question: &str, default: &str, b: &str) -> bool {
     let mut yn_input = String::new();
-    print!("{question} ({a}/{b})\n");
+    print!("{question} ({}/{b})\n", default.to_uppercase());
     io::stdin()
         .read_line(&mut yn_input)
         .expect("Failed to read input.");
 
-    if yn_input.trim().to_lowercase() == b.to_lowercase() {
+    if yn_input.trim().eq_ignore_ascii_case(b) {
         return false;
     } else {
         return true;

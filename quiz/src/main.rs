@@ -12,16 +12,16 @@ fn ask(
 ) {
     let mut input = String::new();
     if !is_loop {
-        print!("{question}");
+        println!("{question}");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read input.");
-        if input.trim().to_lowercase() == answer {
-            print!("\nKorrect™\n\n");
-        } else if easter_egg && input.trim().to_lowercase() == eecondition {
+        if input.trim().eq_ignore_ascii_case(answer) {
+            print!("Korrect™\n");
+        } else if easter_egg && input.trim().eq_ignore_ascii_case(eecondition) {
             print!("{eeoutput}")
         } else {
-            print!("\nInkorrect™ :(\n\n");
+            println!("Inkorrect™ :(\n");
         }
     } else {
         loop {
@@ -30,10 +30,10 @@ fn ask(
             io::stdin()
                 .read_line(&mut input)
                 .expect("Failed to read input.");
-            if input.trim().to_lowercase() == answer.to_lowercase() {
+            if input.trim().eq_ignore_ascii_case(answer) {
                 print!("\nKorrect™\n\n");
                 break;
-            } else if easter_egg && input.trim().to_lowercase() == eecondition {
+            } else if easter_egg && input.trim().eq_ignore_ascii_case(eecondition) {
                 print!("{eeoutput}");
                 if !ee_is_correct {
                     if ask_for_retry {
@@ -56,14 +56,14 @@ fn ask(
     }
 }
 
-fn ask_yn(question: &str, a: &str, b: &str) -> bool {
+fn ask_yn(question: &str, default: &str, b: &str) -> bool {
     let mut yn_input = String::new();
-    print!("{question} ({a}/{b})\n");
+    print!("{question} ({}/{b})\n", default.to_uppercase());
     io::stdin()
         .read_line(&mut yn_input)
         .expect("Failed to read input.");
 
-    if yn_input.trim().to_lowercase() == b.to_lowercase() {
+    if yn_input.trim().eq_ignore_ascii_case(b) {
         return false;
     } else {
         return true;
