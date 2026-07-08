@@ -1,0 +1,6 @@
+[package]
+name = "SNIDE_FIX_YOUR_DISCORD_SERVER"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
