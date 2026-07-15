@@ -1,5 +1,5 @@
 use {
-    anstream::{print, println},
+    anstream::{print, println}, // Microsoft are we genuinely being for real right now?
     std::io::{self, Write},
 };
 mod ansictrlcodes;
