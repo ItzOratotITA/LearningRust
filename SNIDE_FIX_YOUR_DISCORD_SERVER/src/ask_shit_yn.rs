@@ -22,7 +22,7 @@ pub fn ask_shit_yn(question: &str, yisc: bool, qnum: u8, qtot: u8, total_fails: 
             ansictrlcodes::RESET,
         );
         input.clear();
-        io::stdout().flush().expect("could not flush stdout");
+        anstream::stdout().flush().expect("could not flush stdout");
 
         let kontrol_d = io::stdin()
             .read_line(&mut input)
@@ -96,7 +96,7 @@ pub fn ask_shit_yn(question: &str, yisc: bool, qnum: u8, qtot: u8, total_fails: 
             message,
             ansictrlcodes::RESET,
         );
-        io::stdout().flush().expect("could not flush stdout");
+        anstream::stdout().flush().expect("could not flush stdout");
 
         if correct {
             println!();
@@ -106,6 +106,6 @@ pub fn ask_shit_yn(question: &str, yisc: bool, qnum: u8, qtot: u8, total_fails: 
         rpassword::read_password()
             .expect("program fucked up, rpassword crate was so not needed lmfao"); // With all those damn crates file sizes gonna be 10 petabytes
         print!("{}", ansictrlcodes::REWRITE_PREVIOUS);
-        io::stdout().flush().expect("could not flush stdout");
+        anstream::stdout().flush().expect("could not flush stdout");
     }
 }
