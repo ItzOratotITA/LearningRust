@@ -1,30 +1,61 @@
-use std::{io, thread::sleep, time::Duration};
+use {
+    anstream::{print, println},
+    std::io::{self, Write},
+};
+mod ansictrlcodes;
+mod ask_shit_yn;
 
 fn main() {
-    for _ in 1..=100_u8 {
-        println!("SNIDE FIX UR DC");
-        sleep(Duration::from_millis(5));
-    }
+    print!(
+        "{}\n{}  /$$$$$$  /$$   /$$ /$$$$$$ /$$$$$$$  /$$$$$$$$
+ /$$__  $$| $$$ | $$|_  $$_/| $$__  $$| $$_____/
+| $$  \\__/| $$$$| $$  | $$  | $$  \\ $$| $$      
+|  $$$$$$ | $$ $$ $$  | $$  | $$  | $$| $$$$$   
+ \\____  $$| $$  $$$$  | $$  | $$  | $$| $$__/   
+ /$$  \\ $$| $$\\  $$$  | $$  | $$  | $$| $$      
+|  $$$$$$/| $$ \\  $$ /$$$$$$| $$$$$$$/| $$$$$$$$
+ \\______/ |__/  \\__/|______/|_______/ |________/{}{}
+  _____ _                     ____   ____ 
+ |  ___(_)_  __  _   _ _ __  |  _ \\ / ___|
+ | |_  | \\ \\/ / | | | | '__| | | | | |    
+ |  _| | |>  <  | |_| | |    | |_| | |___ 
+ |_|   |_/_/\\_\\  \\__,_|_|    |____/ \\____|{}{}
 
-    let mut input = String::new();
 
-    loop {
-        input.clear();
-
-        println!("\nSnide are you sexy? (y/n)");
-
-        io::stdin()
-            .read_line(&mut input)
-            .expect("program fucked up");
-
-        match input.trim().to_ascii_lowercase().as_str() {
-            "n" => {
-                println!("Korrect™");
-                break;
-            }
-            "y" => println!("Inkorrect™"),
-            "" => println!("Input something dawg™"),
-            _ => println!("Not a listed option™"),
-        }
-    }
+ This is a JOKE, don't take it seriously! :D{}
+ {}Press ENTER to play!{} {}(and continue when you fail){} ",
+        ansictrlcodes::CLEARSCREEN,
+        ansictrlcodes::GREEN,
+        ansictrlcodes::RESET,
+        ansictrlcodes::BLURPLE,
+        ansictrlcodes::RESET,
+        ansictrlcodes::BLUE,
+        ansictrlcodes::RESET,
+        ansictrlcodes::ORANGE,
+        ansictrlcodes::RESET,
+        ansictrlcodes::RED,
+        ansictrlcodes::RESET,
+    );
+    io::stdout().flush().expect("could not flush stdout");
+    rpassword::read_password().expect("program fucked up, rpassword crate was so not needed lmfao");
+    let mut total_fails: u16 = 0;
+    println!();
+    ask_shit_yn::ask_shit_yn(
+        "Snide will you enable viewing message history on your Discord server?",
+        true,
+        1,
+        3,
+        &mut total_fails,
+    );
+    ask_shit_yn::ask_shit_yn(
+        "Snide will you fix your broken link to YouTube on your guns.lol?",
+        true,
+        2,
+        3,
+        &mut total_fails,
+    );
+    ask_shit_yn::ask_shit_yn("Snide are you sexy?", false, 3, 3, &mut total_fails);
+    println!(
+        "\n BTW the thing wrong with your guns.lol is that you have to type .../@Snide21 not .../Snide21"
+    )
 }

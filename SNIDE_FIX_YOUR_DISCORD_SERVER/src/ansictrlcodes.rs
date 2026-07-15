@@ -1,0 +1,10 @@
+pub const RED: &str = "\x1b[31m";
+pub const GREEN: &str = "\x1b[32m";
+pub const ORANGE: &str = "\x1b[33m";
+pub const BLUE: &str = "\x1b[34m";
+pub const BLURPLE: &str = "\x1b[38;2;88;101;242m";
+pub const BOLD: &str = "\x1b[1m";
+pub const RESET: &str = "\x1b[0m";
+pub const CLEARSCREEN: &str = "\x1B[2J\x1B[1;1H";
+pub const CLEAR_CURRENT: &str = "\r\x1b[2K";
+pub const REWRITE_PREVIOUS: &str = "\x1b[1A\r\x1b[2K";
