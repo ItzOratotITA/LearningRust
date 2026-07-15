@@ -37,7 +37,7 @@ fn main() {
         ansictrlcodes::RESET,
     );
     io::stdout().flush().expect("could not flush stdout");
-    rpassword::read_password().expect("program fucked up, rpassword crate was so not needed lmfao");
+    rpassword::read_password().expect("program fucked up, rpassword crate was so not needed lmfao"); // With all those damn crates file sizes gonna be 10 petabytes
     let mut total_fails: u16 = 0;
     println!();
     ask_shit_yn::ask_shit_yn(
@@ -56,6 +56,6 @@ fn main() {
     );
     ask_shit_yn::ask_shit_yn("Snide are you sexy?", false, 3, 3, &mut total_fails);
     println!(
-        "\n BTW the thing wrong with your guns.lol is that you have to type .../@Snide21 not .../Snide21"
+        "\n BTW the thing wrong with your guns.lol is that you have to type '.../@Snide21' not '.../Snide21'"
     )
 }
