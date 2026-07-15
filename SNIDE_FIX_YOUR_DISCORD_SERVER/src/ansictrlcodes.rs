@@ -1,6 +1,7 @@
-pub const RED: &str = "\x1b[31m";
+pub const RED: &str = "\x1b[91m";
 pub const GREEN: &str = "\x1b[32m";
 pub const ORANGE: &str = "\x1b[33m";
+pub const YELLOW: &str = "\x1b[93m";
 pub const BLUE: &str = "\x1b[34m";
 pub const BLURPLE: &str = "\x1b[38;2;88;101;242m";
 pub const BOLD: &str = "\x1b[1m";

@@ -23,6 +23,7 @@ fn main() {
 
 
  This is a JOKE, don't take it seriously! :D{}
+ {}Complete the quiz to know how to fix your guns.lol!{}
  {}Press ENTER to play!{} {}(and continue when you fail){} ",
         ansictrlcodes::CLEARSCREEN,
         ansictrlcodes::GREEN,
@@ -30,6 +31,8 @@ fn main() {
         ansictrlcodes::BLURPLE,
         ansictrlcodes::RESET,
         ansictrlcodes::BLUE,
+        ansictrlcodes::RESET,
+        ansictrlcodes::GREEN,
         ansictrlcodes::RESET,
         ansictrlcodes::ORANGE,
         ansictrlcodes::RESET,
@@ -56,6 +59,15 @@ fn main() {
     );
     ask_shit_yn::ask_shit_yn("Snide are you sexy?", false, 3, 3, &mut total_fails);
     println!(
-        "\n BTW the thing wrong with your guns.lol is that you have to type '.../@Snide21' not '.../Snide21'"
+        "\n {}{}YOU WON!!!{}\n{} The thing wrong with your guns.lol {}{}YouTube{}{} link is that you have to type '.../@Snide21' not '.../Snide21'\n You forgot the '@'!{}",
+        ansictrlcodes::YELLOW,
+        ansictrlcodes::BOLD,
+        ansictrlcodes::RESET,
+        ansictrlcodes::YELLOW,
+        ansictrlcodes::RESET,
+        ansictrlcodes::RED,
+        ansictrlcodes::RESET,
+        ansictrlcodes::YELLOW,
+        ansictrlcodes::RESET,
     )
 }
