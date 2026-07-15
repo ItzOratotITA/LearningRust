@@ -1,5 +1,5 @@
 use {
-    crate::ansictrlcodes,
+    crate::ansictrlcodes, // Why do I need to do that?
     anstream::print,
     std::io::{self, Write},
 };
@@ -104,7 +104,7 @@ pub fn ask_shit_yn(question: &str, yisc: bool, qnum: u8, qtot: u8, total_fails: 
         }
 
         rpassword::read_password()
-            .expect("program fucked up, rpassword crate was so not needed lmfao");
+            .expect("program fucked up, rpassword crate was so not needed lmfao"); // With all those damn crates file sizes gonna be 10 petabytes
         print!("{}", ansictrlcodes::REWRITE_PREVIOUS);
         io::stdout().flush().expect("could not flush stdout");
     }
